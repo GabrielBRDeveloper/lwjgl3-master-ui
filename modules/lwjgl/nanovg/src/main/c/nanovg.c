@@ -2466,8 +2466,10 @@ static int nvg__isTransformFlipped(const float *xform)
 void nvgVertices(NVGcontext* ctx, const float* vertices) {
      int size = sizeof(vertices) / sizeof(vertices[0]);
 
-	NVGvertex* verts;
+	NVGvertex* verts = nvg__allocTempVerts(ctx, size/4);
 	NVGstate* state = nvg__getState(ctx);
+
+
 
     int num = 0;
     for(int i = 0; i < size; i += 4) {
