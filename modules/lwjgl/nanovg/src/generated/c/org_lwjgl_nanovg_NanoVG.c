@@ -810,6 +810,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F
     if (bounds != NULL) { (*__env)->ReleaseFloatArrayElements(__env, boundsAddress, bounds, 0); }
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgVertices(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloatArray buffer) {
+    NVGcontext *ctx = (NVGcontext *)(uintptr_t)ctxAddress;
+    jfloat *raw = (*__env)->GetFloatArrayElements(__env, buffer, NULL);
+    UNUSED_PARAMS(__env, clazz)
+    nvgVertices(ctx, (float *)raw);
+    (*__env)->ReleaseFloatArrayElements(__env, buffer, raw, 0);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextMetrics__J_3F_3F_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloatArray ascenderAddress, jfloatArray descenderAddress, jfloatArray linehAddress) {
     NVGcontext *ctx = (NVGcontext *)(uintptr_t)ctxAddress;
     jfloat *ascender = ascenderAddress == NULL ? NULL : (*__env)->GetFloatArrayElements(__env, ascenderAddress, NULL);

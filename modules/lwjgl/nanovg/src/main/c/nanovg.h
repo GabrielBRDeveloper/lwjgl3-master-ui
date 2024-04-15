@@ -580,6 +580,9 @@ void nvgFontBlur(NVGcontext* ctx, float blur);
 // Sets the letter spacing of current text style.
 void nvgTextLetterSpacing(NVGcontext* ctx, float spacing);
 
+// Draw a vertices
+void nvgVertices(NVGcontext* ctx,const float* vertices);
+
 // Sets the proportional line height of current text style. The line height is specified as multiple of font size.
 void nvgTextLineHeight(NVGcontext* ctx, float lineHeight);
 

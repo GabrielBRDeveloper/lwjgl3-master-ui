@@ -2439,6 +2439,7 @@ public class NanoVG {
      * @param end a pointer to the end of the sub-string to measure, or {@code NULL}
      */
     public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, long bounds);
+    public static native float nnvgVertices(long ctx, float[] vertices); // XY | UV
 
     /**
      * Measures the specified text string.

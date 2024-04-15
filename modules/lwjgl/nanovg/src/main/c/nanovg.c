@@ -2463,6 +2463,20 @@ static int nvg__isTransformFlipped(const float *xform)
 	return( det < 0);
 }
 
+void nvgVertices(NVGcontext* ctx, const float* vertices) {
+     int size = sizeof(vertices) / sizeof(vertices[0]);
+
+	NVGvertex* verts;
+	NVGstate* state = nvg__getState(ctx);
+
+    int num = 0;
+    for(int i = 0; i < size; i += 4) {
+        nvg__vset(&verts[num], vertices[i], vertices[i+1], vertices[i+2], vertices[i+3]);
+        num++;
+    }
+    nvg__renderText(ctx, verts, num);
+}
+
 float nvgText(NVGcontext* ctx, float x, float y, const char* string, const char* end)
 {
 	NVGstate* state = nvg__getState(ctx);
